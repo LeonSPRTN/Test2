@@ -5,6 +5,9 @@ namespace App\Service;
 
 
 use Doctrine\ORM\EntityManagerInterface;
+use mysql_xdevapi\Exception;
+use Psr\Log\LoggerInterface;
+use Symfony\Component\HttpKernel\Log\Logger;
 
 class SendDataService
 {
@@ -17,6 +20,11 @@ class SendDataService
      * @var EntityManagerInterface
      */
     private $entityManager;
+
+    /**
+     * @var LoggerInterface
+     */
+    private $logger;
 
     /**
      * SendDataService constructor.
@@ -33,13 +41,12 @@ class SendDataService
     {
         $message = (new \Swift_Message('Name: '.$car['name'].'\n'
             .'Brand: '.$car['brand'].'\n'
-            .'Horsepower'.$car['horsepower']
+            .'Horsepower: '.$car['horsepower']
         ))
-            ->setFrom('test@example.com')
-            ->setTo('test2@example.com');
+            ->setFrom('******@yandex.ru')
+            ->setTo('*******@mail.ru');
 
         $this->mailer->send($message);
-
     }
 
 }
