@@ -5,9 +5,7 @@ namespace App\Service;
 
 
 use Doctrine\ORM\EntityManagerInterface;
-use mysql_xdevapi\Exception;
-use Psr\Log\LoggerInterface;
-use Symfony\Component\HttpKernel\Log\Logger;
+
 
 class SendDataService
 {
@@ -21,10 +19,6 @@ class SendDataService
      */
     private $entityManager;
 
-    /**
-     * @var LoggerInterface
-     */
-    private $logger;
 
     /**
      * SendDataService constructor.
